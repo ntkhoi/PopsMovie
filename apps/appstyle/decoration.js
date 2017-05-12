@@ -3,15 +3,22 @@ import {StyleSheet} from 'react-native';
 export default AppStyle = {
     
     movie_container: {
-        backgroundColor: 'orange',
+        
         flexDirection: 'row',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        padding: 2,
+        justifyContent: 'center',
+
+        
     },
     movie_cell: {
         backgroundColor: 'red',
-        margin: 3,
-        width: 100,
+        margin: 8,
+        width: 168,
+        height: 280,
         alignItems: 'flex-start',
+        justifyContent: 'center',
+
     }
 
 };

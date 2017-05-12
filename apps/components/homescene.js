@@ -55,7 +55,7 @@ export default class HomeScene extends Component{
   render(){
     
         return(
-            <ListView style={AppStyles.movie_container}
+            <ListView contentContainerStyle={AppStyles.movie_container}
                 dataSource={this.state.dataSource}
                 renderRow={this._renderRow}
               />
