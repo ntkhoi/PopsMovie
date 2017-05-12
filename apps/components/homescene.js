@@ -6,10 +6,12 @@ import {
   StyleSheet,
   Text,
   View,
-  ListView
+  ListView,
+  Image
 } from 'react-native';
 
 import AppStyles from '../appstyle/decoration.js'
+import Global_variable from '../global/global_variable.js'
 
 export default class HomeScene extends Component{
 
@@ -26,7 +28,7 @@ export default class HomeScene extends Component{
   };
 
    componentDidMount() {
-        this.fetchMovieDatas('https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed');
+        this.fetchMovieDatas(Global_variable.moviesUrl);
         
     }
 
@@ -48,14 +50,20 @@ export default class HomeScene extends Component{
 
   _renderRow(rowData){
     return (
-         <Text style={AppStyles.movie_cell}> ABC XYSDASD </Text>
+        <View style={AppStyles.movie_cell} >
+          <View style={AppStyles.movie_box_container} >
+            <Image style={AppStyles.movie_image} source={{
+                uri: Global_variable.Image + rowData.poster_path }} />
+                
+          </View>
+        </View>
     )
   }
   
   render(){
     
         return(
-            <ListView contentContainerStyle={AppStyles.movie_container}
+            <ListView contentContainerStyle={AppStyles.movie_container}       
                 dataSource={this.state.dataSource}
                 renderRow={this._renderRow}
               />
