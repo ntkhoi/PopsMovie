@@ -7,27 +7,51 @@ export default AppStyle = {
         flexWrap: 'wrap',
         padding: 2,
         justifyContent: 'center',
+
+      
     },
     movie_cell: {
         backgroundColor: 'red',
         margin: 8,
-        width: 168,
         height: 280,
         alignItems: 'flex-start',
         justifyContent: 'center',
         
-        
-
     },
     movie_image: {
-        height: 150, 
-        width: 100
+        height: 220, 
+        width: 168
     },
 
     movie_box_container: {
-      flex: 10,
-      backgroundColor: 'blue'
+      flex: 1,
+      backgroundColor: 'orange',
+      flexDirection: 'column',
+    },
+    movie_title_style:{
+        color: '#ffff',
+        fontSize: 14,
+        alignItems:'center',
+        justifyContent:'center',
+        fontWeight: 'bold',
+        paddingTop: 5,
+        paddingLeft: 10,
+        
+        width: 150
+    },
+    movie_gener_style: {
+        flex: 0.5 ,
+        paddingTop: 2,
+        paddingLeft: 10,
+        fontSize: 12,
+        color: '#4d4d4d'
+    },
+
+    movie_text_padding:{
+     
     }
+    
+
     
 };
 

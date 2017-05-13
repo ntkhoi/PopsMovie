@@ -2,13 +2,15 @@
 
 import React , {Component} from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
   ListView,
-  Image
+  Image,
+  TouchableOpacity,
+  Alert
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import AppStyles from '../appstyle/decoration.js'
 import Global_variable from '../global/global_variable.js'
@@ -21,6 +23,8 @@ export default class HomeScene extends Component{
     this.state = {
       dataSource: ds.cloneWithRows(['row 1', 'row 2']),
     };
+    this._renderRow = this._renderRow.bind(this);
+    this._onMoviePress = this._onMoviePress.bind(this);
   }
 
   static navigationOptions = {
@@ -48,20 +52,27 @@ export default class HomeScene extends Component{
         });
   }
 
+  _onMoviePress(rowData){
+     const { navigate } = this.props.navigation;
+     navigate('MovieDetail', { passDrop: rowData });
+  }
   _renderRow(rowData){
     return (
+       <TouchableOpacity onPress={ this._onMoviePress}>
         <View style={AppStyles.movie_cell} >
           <View style={AppStyles.movie_box_container} >
             <Image style={AppStyles.movie_image} source={{
                 uri: Global_variable.Image + rowData.poster_path }} />
-                
+            <Text numberOfLines={2} style={AppStyles.movie_title_style}  >{rowData.title}</Text>
+            <Text style={AppStyles.movie_gener_style} >{'Ratting :' + rowData.vote_average}</Text>
           </View>
         </View>
+        </TouchableOpacity>
     )
   }
   
   render(){
-    
+        
         return(
             <ListView contentContainerStyle={AppStyles.movie_container}       
                 dataSource={this.state.dataSource}
