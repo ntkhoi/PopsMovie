@@ -24,7 +24,7 @@ export default class HomeScene extends Component{
       dataSource: ds.cloneWithRows(['row 1', 'row 2']),
     };
     this._renderRow = this._renderRow.bind(this);
-    this._onMoviePress = this._onMoviePress.bind(this);
+    // this._onMoviePress = this._onMoviePress.bind(this);
   }
 
   static navigationOptions = {
@@ -54,11 +54,12 @@ export default class HomeScene extends Component{
 
   _onMoviePress(rowData){
      const { navigate } = this.props.navigation;
-     navigate('MovieDetail', { passDrop: rowData });
+     console.log("_onMoviePress" + rowData.title);
+     navigate('MovieDetail', { data: rowData });
   }
   _renderRow(rowData){
     return (
-       <TouchableOpacity onPress={ this._onMoviePress}>
+       <TouchableOpacity onPress={() =>  this._onMoviePress(rowData)}>
         <View style={AppStyles.movie_cell} >
           <View style={AppStyles.movie_box_container} >
             <Image style={AppStyles.movie_image} source={{

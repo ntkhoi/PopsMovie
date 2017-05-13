@@ -41,15 +41,17 @@ export default AppStyle = {
     },
     movie_gener_style: {
         flex: 0.5 ,
-        paddingTop: 2,
+        paddingTop: 3,
         paddingLeft: 10,
         fontSize: 12,
         color: '#4d4d4d'
     },
 
-    movie_text_padding:{
-     
-    }
+   detail_banner:{
+       width: 300,
+       height: 200,
+       
+   }
     
 
     
