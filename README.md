@@ -1,4 +1,6 @@
+
 *PopMovie*
+
 This is the movie view app for both andorid and ios.
 I am building this app to learn react native . 
 
