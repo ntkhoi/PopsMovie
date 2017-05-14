@@ -8,16 +8,36 @@ import {
   ListView,
   Image,
   TouchableOpacity,
-  Alert
+  Alert,
+  Button
 } from 'react-native';
-
+import { NavigationActions } from 'react-navigation'
 import AppStyles from '../appstyle/decoration.js'
 import Global_variable from '../global/global_variable.js'
 
 export default class MovieDetails extends Component{
+   
+   _this = this;
+
     static navigationOptions = {
     title: 'Dustin Movie',
+    headerLeft: (
+      <Button
+            title="Back"
+            onPress={ () => 
+            
+              this._goback.bind(this)
+            }  
+          />
+    ),
+    
   };
+  
+
+  _goback(){
+      console.log(' this._renderRow = this._renderRow.bind(this);');
+  }
+
   render() {
     const {state} = this.props.navigation;
     console.log("MovieDetails: " + state.params.data.title);
@@ -49,7 +69,7 @@ export default class MovieDetails extends Component{
          </View>
           <Text style={AppStyles.detials_overview} >
                 {state.params.data.overview}
-            </Text>
+         </Text>
          
       </View>
     );

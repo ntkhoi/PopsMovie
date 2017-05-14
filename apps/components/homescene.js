@@ -8,7 +8,8 @@ import {
   ListView,
   Image,
   TouchableOpacity,
-  Alert
+  Alert,
+  RefreshControl
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -22,10 +23,18 @@ export default class HomeScene extends Component{
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+      refreshing: false,
     };
     this._renderRow = this._renderRow.bind(this);
-    // this._onMoviePress = this._onMoviePress.bind(this);
   }
+
+  _onRefresh() {
+    this.setState({refreshing: true});
+    this.fetchMovieDatas(Global_variable.moviesUrl).then(() => {
+      this.setState({refreshing: false});
+    });
+  }
+
 
   static navigationOptions = {
     title: 'Welcome',
@@ -78,6 +87,12 @@ export default class HomeScene extends Component{
             <ListView contentContainerStyle={AppStyles.movie_container}       
                 dataSource={this.state.dataSource}
                 renderRow={this._renderRow}
+                refreshControl={
+                    <RefreshControl
+                      refreshing={this.state.refreshing}
+                      onRefresh={this._onRefresh.bind(this)}
+                    />
+                  }
               />
         );
     }
