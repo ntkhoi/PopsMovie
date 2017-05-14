@@ -19,23 +19,18 @@ export default class MovieDetails extends Component{
    
    _this = this;
 
-    static navigationOptions = {
-    title: 'Dustin Movie',
-    headerLeft: (
-      <Button
-            title="Back"
-            onPress={ () => 
-            
-              this._goback.bind(this)
-            }  
-          />
-    ),
     
-  };
+   static navigationOptions = ({ navigation }) => ({
+    title: `${navigation.state.params.data.title}`,
+    headerMode: 'none',
+    headerTitle: null,
+    headerBackTitle: 'Back',
+    headerTruncatedBackTitle: 'Back'
+  });
   
 
   _goback(){
-      console.log(' this._renderRow = this._renderRow.bind(this);');
+      const {goBack} = this.props.navigation;
   }
 
   render() {
