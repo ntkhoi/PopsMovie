@@ -33,6 +33,10 @@ export default class MovieDetails extends Component{
       const {goBack} = this.props.navigation;
   }
 
+  _onPressPlayVideo(){
+    console.log("Click Play video");
+  }
+
   render() {
     const {state} = this.props.navigation;
     console.log("MovieDetails: " + state.params.data.title);
@@ -59,6 +63,14 @@ export default class MovieDetails extends Component{
                 <Text style={AppStyles.details_text_info}>
                      {state.params.data.vote_average}
                 </Text>
+                 <TouchableOpacity onPress={this._onPressPlayVideo}>
+                    <View style={AppStyles.detail_play_button} >
+                        <Text style={AppStyles.detail_play_button_text} >
+                            Play Video
+                        </Text>
+                    </View>
+                    </TouchableOpacity>
+
             </View>
            
          </View>

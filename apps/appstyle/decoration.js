@@ -92,6 +92,21 @@ export default AppStyle = {
     marginBottom:10,
     marginRight: 10,
     
+   },
+   detail_play_button: {
+    width: 100,
+    height: 34,
+    borderColor: '#606060',
+    borderWidth: 1,
+    marginTop: 10,
+    marginLeft: 10,
+    borderRadius: 7,
+    margin: 5,
+    justifyContent: 'center', 
+    alignItems: 'center' 
+   },
+   detail_play_button_text: {
+    fontSize: 13,
    }
 };
 
